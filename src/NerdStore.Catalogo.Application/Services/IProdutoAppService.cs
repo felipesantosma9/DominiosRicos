@@ -1,8 +1,7 @@
-﻿using NerdStore.Catalogo.Application.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
+using NerdStore.Catalogo.Application.ViewModels;
 
 namespace NerdStore.Catalogo.Application.Services
 {
@@ -10,7 +9,6 @@ namespace NerdStore.Catalogo.Application.Services
     {
         Task<IEnumerable<ProdutoViewModel>> ObterPorCategoria(int codigo);
         Task<ProdutoViewModel> ObterPorId(Guid id);
-
         Task<IEnumerable<ProdutoViewModel>> ObterTodos();
         Task<IEnumerable<CategoriaViewModel>> ObterCategorias();
 

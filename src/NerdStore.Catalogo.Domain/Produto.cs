@@ -1,7 +1,5 @@
-﻿using NerdStore.Core.DomainObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Catalogo.Domain
 {
@@ -18,11 +16,7 @@ namespace NerdStore.Catalogo.Domain
         public Dimensoes Dimensoes { get; private set; }
         public Categoria Categoria { get; private set; }
 
-        protected Produto()
-        {
-
-        }
-
+        protected Produto() { }
         public Produto(string nome, string descricao, bool ativo, decimal valor, Guid categoriaId, DateTime dataCadastro, string imagem, Dimensoes dimensoes)
         {
             CategoriaId = categoriaId;
@@ -38,7 +32,9 @@ namespace NerdStore.Catalogo.Domain
         }
 
         public void Ativar() => Ativo = true;
+
         public void Desativar() => Ativo = false;
+
         public void AlterarCategoria(Categoria categoria)
         {
             Categoria = categoria;

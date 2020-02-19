@@ -1,15 +1,12 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 
 namespace NerdStore.Catalogo.Domain.Events
 {
     public class ProdutoEventHandler : INotificationHandler<ProdutoAbaixoEstoqueEvent>
     {
-        public readonly IProdutoRepository _produtoRepository;
+        private readonly IProdutoRepository _produtoRepository;
 
         public ProdutoEventHandler(IProdutoRepository produtoRepository)
         {
@@ -20,7 +17,7 @@ namespace NerdStore.Catalogo.Domain.Events
         {
             var produto = await _produtoRepository.ObterPorId(mensagem.AggregateId);
 
-            // Enviar um e-mail para aquisicao de mais produtos.
+            // Enviar um email para aquisicao de mais produtos.
         }
     }
 }

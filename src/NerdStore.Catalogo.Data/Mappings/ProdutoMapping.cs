@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NerdStore.Catalogo.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NerdStore.Catalogo.Data.Mappings
 {
@@ -25,7 +22,6 @@ namespace NerdStore.Catalogo.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(250)");
 
-            // Representa a Classe Dimensoes como campos na tabela produtos
             builder.OwnsOne(c => c.Dimensoes, cm =>
             {
                 cm.Property(c => c.Altura)
