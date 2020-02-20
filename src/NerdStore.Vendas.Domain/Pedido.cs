@@ -1,8 +1,8 @@
-﻿using NerdStore.Core.DomainObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using FluentValidation.Results;
+using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Vendas.Domain
 {
@@ -23,11 +23,6 @@ namespace NerdStore.Vendas.Domain
         // EF Rel.
         public Voucher Voucher { get; private set; }
 
-        protected Pedido()
-        {
-            _pedidoItems = new List<PedidoItem>();
-        }
-
         public Pedido(Guid clienteId, bool voucherUtilizado, decimal desconto, decimal valorTotal)
         {
             ClienteId = clienteId;
@@ -37,11 +32,21 @@ namespace NerdStore.Vendas.Domain
             _pedidoItems = new List<PedidoItem>();
         }
 
-        public void AplicarVoucher(Voucher voucher)
+        protected Pedido()
         {
+            _pedidoItems = new List<PedidoItem>();
+        }
+
+        public ValidationResult AplicarVoucher(Voucher voucher)
+        {
+            var validationResult = voucher.ValidarSeAplicavel();
+            if (!validationResult.IsValid) return validationResult;
+
             Voucher = voucher;
             VoucherUtilizado = true;
             CalcularValorPedido();
+
+            return validationResult;
         }
 
         public void CalcularValorPedido()
@@ -161,9 +166,9 @@ namespace NerdStore.Vendas.Domain
         {
             public static Pedido NovoPedidoRascunho(Guid clienteId)
             {
-                var pedido =  new Pedido
+                var pedido = new Pedido
                 {
-                    ClienteId = clienteId
+                    ClienteId = clienteId,
                 };
 
                 pedido.TornarRascunho();

@@ -1,8 +1,6 @@
-﻿using FluentValidation;
+﻿using System;
+using FluentValidation;
 using NerdStore.Core.Messages;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NerdStore.Vendas.Application.Commands
 {
@@ -29,6 +27,7 @@ namespace NerdStore.Vendas.Application.Commands
             return ValidationResult.IsValid;
         }
     }
+
     public class AdicionarItemPedidoValidation : AbstractValidator<AdicionarItemPedidoCommand>
     {
         public AdicionarItemPedidoValidation()
@@ -47,11 +46,11 @@ namespace NerdStore.Vendas.Application.Commands
 
             RuleFor(c => c.Quantidade)
                 .GreaterThan(0)
-                .WithMessage("A quantidade mínima de um item é 1");
+                .WithMessage("A quantidade miníma de um item é 1");
 
             RuleFor(c => c.Quantidade)
                 .LessThan(15)
-                .WithMessage("A quantidade mínima de um item é 15");
+                .WithMessage("A quantidade máxima de um item é 15");
 
             RuleFor(c => c.ValorUnitario)
                 .GreaterThan(0)

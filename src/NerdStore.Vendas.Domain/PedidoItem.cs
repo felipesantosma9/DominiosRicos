@@ -1,11 +1,11 @@
-﻿using NerdStore.Core.DomainObjects;
-using System;
+﻿using System;
+using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Vendas.Domain
 {
     public class PedidoItem : Entity
     {
-        public Guid PedidoId{ get; private set; }
+        public Guid PedidoId { get; private set; }
         public Guid ProdutoId { get; private set; }
         public string ProdutoNome { get; private set; }
         public int Quantidade { get; private set; }
@@ -14,11 +14,6 @@ namespace NerdStore.Vendas.Domain
         // EF Rel.
         public Pedido Pedido { get; set; }
 
-        protected PedidoItem()
-        {
-
-        }
-
         public PedidoItem(Guid produtoId, string produtoNome, int quantidade, decimal valorUnitario)
         {
             ProdutoId = produtoId;
@@ -26,6 +21,8 @@ namespace NerdStore.Vendas.Domain
             Quantidade = quantidade;
             ValorUnitario = valorUnitario;
         }
+
+        protected PedidoItem() { }
 
         internal void AssociarPedido(Guid pedidoId)
         {
