@@ -14,7 +14,7 @@
           "lib/netstandard2.0/FluentValidation.dll": {}
         }
       },
-      "MediatR/8.0.0": {
+      "MediatR/7.0.0": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/MediatR.dll": {}
@@ -260,16 +260,16 @@
         "lib/netstandard2.0/FluentValidation.xml"
       ]
     },
-    "MediatR/8.0.0": {
-      "sha512": "cYSDJ2b/dIiwTLW/ZW/SQcXq9I3WF6KR4D0KN4hxWR08tZqcvcVS1bQXZbsANdQdTQfxx+ZFp5WkHLMyeoR5Zw==",
+    "MediatR/7.0.0": {
+      "sha512": "sgfHxkBsmMlHOD564SnLqTvSbAuGlFiZfc6ybxBSI1wYV/2u+Y5TXtFoIhCISFg5/s/6aMvB338QC2JseHsjTA==",
       "type": "package",
-      "path": "mediatr/8.0.0",
+      "path": "mediatr/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net461/MediatR.dll",
         "lib/netstandard2.0/MediatR.dll",
-        "mediatr.8.0.0.nupkg.sha512",
+        "mediatr.7.0.0.nupkg.sha512",
         "mediatr.nuspec"
       ]
     },
@@ -833,7 +833,7 @@
     ".NETCoreApp,Version=v2.2": [
       "FluentValidation >= 8.4.0",
       "Microsoft.NETCore.App >= 2.2.0",
-      "mediatr >= 8.0.0"
+      "mediatr >= 7.0.0"
     ]
   },
   "packageFolders": {
@@ -889,7 +889,7 @@
           },
           "mediatr": {
             "target": "Package",
-            "version": "[8.0.0, )"
+            "version": "[7.0.0, )"
           }
         },
         "imports": [

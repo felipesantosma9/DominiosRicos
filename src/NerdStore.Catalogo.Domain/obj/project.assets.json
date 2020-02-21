@@ -243,7 +243,7 @@
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "FluentValidation": "8.4.0",
-          "mediatr": "8.0.0"
+          "mediatr": "7.0.0"
         },
         "compile": {
           "bin/placeholder/NerdStore.Core.dll": {}
