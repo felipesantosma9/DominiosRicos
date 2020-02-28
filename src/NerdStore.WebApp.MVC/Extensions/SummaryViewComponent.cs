@@ -16,8 +16,8 @@ namespace NerdStore.WebApp.MVC.Extensions
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var notification = await Task.FromResult(_notifications.ObterNotificacoes());
-            notification.ForEach(c => ViewData.ModelState.AddModelError(string.Empty, c.Value));
+            var notificacoes = await Task.FromResult(_notifications.ObterNotificacoes());
+            notificacoes.ForEach(c => ViewData.ModelState.AddModelError(string.Empty, c.Value));
 
             return View();
         }

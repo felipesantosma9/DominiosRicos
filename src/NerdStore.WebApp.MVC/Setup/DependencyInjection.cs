@@ -34,7 +34,7 @@ namespace NerdStore.WebApp.MVC.Setup
             // Notifications
             services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
 
-            //// Event Sourcing
+            // Event Sourcing
             //services.AddSingleton<IEventStoreService, EventStoreService>();
             //services.AddSingleton<IEventSourcingRepository, EventSourcingRepository>();
 
@@ -45,8 +45,8 @@ namespace NerdStore.WebApp.MVC.Setup
             services.AddScoped<CatalogoContext>();
 
             services.AddScoped<INotificationHandler<ProdutoAbaixoEstoqueEvent>, ProdutoEventHandler>();
-            //services.AddScoped<INotificationHandler<niciadoEvent>, ProdutoEventHandler>();
-            //services.AddScoped<INotificationHandler<PedidoProcessamentoCanceladoEvent>, ProdutoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoIniciadoEvent>, ProdutoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoProcessamentoCanceladoEvent>, ProdutoEventHandler>();
 
             // Vendas
             services.AddScoped<IPedidoRepository, PedidoRepository>();
@@ -67,8 +67,6 @@ namespace NerdStore.WebApp.MVC.Setup
             services.AddScoped<INotificationHandler<PedidoPagamentoRealizadoEvent>, PedidoEventHandler>();
             services.AddScoped<INotificationHandler<PedidoPagamentoRecusadoEvent>, PedidoEventHandler>();
 
-            services.AddScoped<INotificationHandler<PedidoItemAdicionadoEvent>, PedidoEventHandler>();
-
             // Pagamento
             services.AddScoped<IPagamentoRepository, PagamentoRepository>();
             services.AddScoped<IPagamentoService, PagamentoService>();
@@ -77,7 +75,7 @@ namespace NerdStore.WebApp.MVC.Setup
             services.AddScoped<IConfigurationManager, ConfigurationManager>();
             services.AddScoped<PagamentoContext>();
 
-            //services.AddScoped<INotificationHandler<PedidoEstoqueConfirmadoEvent>, PagamentoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoEstoqueConfirmadoEvent>, PagamentoEventHandler>();
         }
     }
 }
