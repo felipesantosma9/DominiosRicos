@@ -229,7 +229,7 @@ namespace NerdStore.Vendas.Application.Commands
                 return false;
             }
 
-            pedido.TornarRascunho();
+            pedido.TornarRascunho   ();
 
             return await _pedidoRepository.UnitOfWork.Commit();
         }
